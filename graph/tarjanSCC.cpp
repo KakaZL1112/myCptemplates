@@ -55,8 +55,30 @@ void tarjan2(int x){
     }
 
 }
-
-
+//割边
+struct edge{int u,v;};
+vector<edge> eg;//边集
+vector<int> h[N]; //出边
+struct brige{int x,y;} bri[N];
+ll cntb = 0;
+void add(int a,int b){
+    eg.push_back({a,b});
+    h[a].push_back(eg.size()-1);
+}
+void tarjan3(int x,int in_edge){
+    dfn[x] = low[x] = ++tot;
+    for (int i = 0;i < h[x].size();i++){
+        int j = h[x][i],y = eg[j].v;
+        if(!dfn[y]){
+            tarjan3(y,j);
+            low[x] = min(low[x],low[y]);
+            if(low[x] > dfn[y]){
+                bri[++cntb] = {x,y};
+            }
+        }
+        else if(j != (in_edge^1)) low[x] = min(low[x],dfn[y]); //不是反边
+    }
+} 
 int main(){
 
 }
