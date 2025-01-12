@@ -80,5 +80,5 @@ void tarjan3(int x,int in_edge){
     }
 } 
 int main(){
-
+    
 }
