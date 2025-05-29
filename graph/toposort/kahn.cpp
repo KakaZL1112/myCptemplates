@@ -7,10 +7,9 @@ const int N = 2e5+5;
 int n;
 vector<int> e[N],tp;
 int din[N];
-
+queue<int> q;
 
 bool toposort(){
-    queue<int> q;
     for (int i = 1;i <= n;i++){
         if(din[i] == 0) q.push(i);
         while(q.size()){
@@ -37,6 +36,11 @@ void solve()
     }
     if(!toposort()) puts("-1");
     else puts("1");
+    cout << q.size() << endl;
+    while(q.size()){
+        cout << q.front() << endl;
+        q.pop();
+    }
 }
 
 signed main()

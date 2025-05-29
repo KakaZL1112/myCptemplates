@@ -11,10 +11,7 @@ struct edge{
 int n,m,s;
 vector<edge> e[N];
 int d[N],vis[N],pre[N];
-//不能处理负边权 复杂度（n^2+m) = n^2;  改为队列后 为 n*log2m
-
-priority_queue<pair<int,int>> q; // 将边权处理为负值，在优先队列中 值越小便越靠前 队列就优先处理边权小的
-
+priority_queue<pair<int,int>> q; 
 void dijkstra(int s){
     for (int i = 0;i <= n;i++) d[i] = INF;
     d[s] = 0;q.push({0,s});
@@ -27,7 +24,6 @@ void dijkstra(int s){
             int v = ed.v,w=ed.w;
             if(d[v] > d[u]+w){
                 d[v]= d[u]+w;
-                pre[v] = u;//记 录 前 驱 点；
                 q.push({-d[v],v});
             }
         }

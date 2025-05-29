@@ -72,7 +72,7 @@ void tarjan3(int x,int in_edge){
         if(!dfn[y]){
             tarjan3(y,j);
             low[x] = min(low[x],low[y]);
-            if(low[x] > dfn[y]){
+            if(low[y] > dfn[x]){
                 bri[++cntb] = {x,y};
             }
         }

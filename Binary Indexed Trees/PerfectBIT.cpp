@@ -42,25 +42,6 @@ int querySum(int x){ //差分数组时，查询前缀和 //区间修改，区间
 
 void solve()
 {
-    cin >> n;
-    vector<int> a(n+1);
-    for(int i = 1;i <= n;i++){
-        cin >> a[i];
-        modify(i,a[i]-a[i-1]);
-    }
-    int m; cin >> m;
-    while(m--){
-        int l,r;
-        cin >> l >> r;
-        int x; cin >> x;
-        modify(l,x);
-        modify(r+1,-x);
-    }
-    int q;cin >> q;
-    while(q--){
-        int x;cin >> x;
-        cout << querySum(x) << endl;
-    }
 }
 
 signed main()

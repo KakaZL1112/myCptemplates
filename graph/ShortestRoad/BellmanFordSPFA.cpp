@@ -41,6 +41,6 @@ signed main(){
         cin>>a>>b>>c;
         e[a].push_back({b,c});
     }
-    dijkstra(s);
+    SPFA(s);
     for (int i = 1;i <= n;i++) cout<<i<<":"<<d[i]<<" ";
 }

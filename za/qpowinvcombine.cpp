@@ -39,12 +39,10 @@ ll qPow(ll a,ll b,ll mod){
 }
 
 void init(){
-    //求阶乘
     fac[0]=1;
     for(int i=1;i<maxn;i++){
         fac[i]=fac[i-1]*i%mod;
     }
-    //求逆元
     inv[maxn-1]=qPow(fac[maxn-1],mod-2,mod);
     for(int i=maxn-2;i>=0;i--){
         inv[i]=inv[i+1]*(i+1)%mod;
