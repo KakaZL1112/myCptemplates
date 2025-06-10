@@ -14,9 +14,9 @@ int n,m;
 edge e[100005];//边集
 int idx,h[100005];//点的第一条出边
 
-void add(int a,int b,int c){
-    e[idx] = {b,c,h[a]};
-    h[a] = idx++;
+void add(int u,int v,int w){
+  e[++idx].v=v; e[idx].w=w;  
+  e[idx].ne=h[u]; h[u]=idx;
 }
 
 void dfs(int u,int fa){
@@ -30,7 +30,6 @@ void dfs(int u,int fa){
 
 signed main(){
     cin>>n>>m;
-    memset(h,-1,sizeof(h));
     for (int i = 1;i <= m;i++){
         int a,b,c;
         cin>>a>>b>>c;

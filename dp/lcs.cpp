@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//最长公共子序列
 int f[2005][2005];
 int p[2005][2005];
 int lcs(string a,string b){
