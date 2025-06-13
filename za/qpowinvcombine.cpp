@@ -27,6 +27,7 @@ void getprime(int n)
 
 ll inv[maxn], fac[maxn];  //分别表示逆元和阶乘
 //快速幂
+//大指数取模，指数取 p-1的模
 ll qPow(ll a,ll b,ll mod){
     ll ans=1;
     while(b){
