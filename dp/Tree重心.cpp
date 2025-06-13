@@ -9,23 +9,20 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-
+const int N = 1e5+5;
 vector<int> e[10005];
 
-int size,sum;
-int ans = 0;
-int n;
-int dfs(int u,int fa){
-    int size = 0;
-    int sum = 1;
-    for (auto ed:e[u]){
-        if(ed != fa){
-            int s = dfs(ed,u);
-            size = max(size,s);
-            sum+=s;
-        }
+int del[N],siz[N],mxs,sum,root;//求根
+void getroot(int u,int fa){
+    siz[u]=1; 
+    int s=0;
+    for(auto ed:e[u]){
+        int v= ed;
+        if(v==fa||del[v])continue;
+        getroot(v,u);
+        siz[u]+=siz[v];
+        s=max(s,siz[v]);
     }
-    ans = min(ans,max(size,n-sum));
-    return sum;
+    s=max(s,sum-siz[u]);
+    if(s<mxs) mxs=s, root=u;
 }
-
