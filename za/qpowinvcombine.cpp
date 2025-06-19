@@ -38,7 +38,6 @@ ll qPow(ll a,ll b,ll mod){
     }
     return ans;
 }
-
 void init(){
     fac[0]=1;
     for(int i=1;i<maxn;i++){
@@ -62,7 +61,6 @@ ll C(int n,int m){
 ll getInv(int a,int Mod){
     return qPow(a,Mod-2,Mod);
 }
-
 
 void solve(){
     
