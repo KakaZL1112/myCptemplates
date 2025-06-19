@@ -76,3 +76,24 @@ Info operator+(Info a, Info b) {
     // 对 a（左儿子） 和 b（右儿子） 一通操作合成 c（父结点）
     return c;
 }
+/*
+
+
+struct Info {
+    LL sum, d;
+    Info(LL s = 0): sum(s), d(s) {}
+};
+
+Info operator+(Info a, Info b) {
+    Info c;
+    c.sum = a.sum + b.sum;
+    c.d = std::gcd(a.d, b.d);
+    return c;
+}
+
+std::vector<Info> a(n);
+    for (int i = 0; i < n; i += 1) {
+        std::cin >> a[i].d;
+    }
+
+*/
