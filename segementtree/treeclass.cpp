@@ -96,4 +96,12 @@ std::vector<Info> a(n);
         std::cin >> a[i].d;
     }
 
+        ll n,m;
+    cin >> n >> m;
+    vector<Info> a(n+1);
+    for (int i = 1;i <= n;i++){
+        cin >> a[i].sum;
+        a[i].maxn = a[i].sum;
+    } 
+    SGT<Info> sgt(a);
 */
