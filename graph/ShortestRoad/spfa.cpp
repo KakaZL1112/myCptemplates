@@ -17,6 +17,7 @@ bool spfa(int s){
     vis[s] = 1;
     cnt[s]++;
     while(q.size()){
+        for (int i = 1;i <= n;i++) dis[i] = INT_MAX;
         int u = q.front();
         q.pop();
         vis[u] = 0;
