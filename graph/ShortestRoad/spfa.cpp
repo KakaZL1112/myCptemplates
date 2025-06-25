@@ -11,13 +11,13 @@ int dis[100005];
 bool vis[100005];
 int cnt[100005];
 bool spfa(int s){
+    for (int i = 1;i <= n;i++) dis[i] = INT_MAX;
     dis[s] = 0;
     queue<int> q;
     q.push(s);
     vis[s] = 1;
     cnt[s]++;
     while(q.size()){
-        for (int i = 1;i <= n;i++) dis[i] = INT_MAX;
         int u = q.front();
         q.pop();
         vis[u] = 0;
