@@ -32,7 +32,6 @@ void tarjan(int x){
             scc[y] = cnt;
             ++siz[cnt];
         }while(y != x);
-        
     }
 }
 

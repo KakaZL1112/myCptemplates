@@ -21,11 +21,11 @@ void getroot(int u,int fa){
     siz[u]=1; 
     int s=0;
     for(int i=h[u];i;i=e[i].ne){
-      int v=e[i].v;
-      if(v==fa||del[v])continue;
-      getroot(v,u);
-      siz[u]+=siz[v];
-      s=max(s,siz[v]);
+        int v=e[i].v;
+        if(v==fa||del[v])continue;
+        getroot(v,u);
+        siz[u]+=siz[v];
+        s=max(s,siz[v]);
     }
     s=max(s,sum-siz[u]);
     if(s<mxs) mxs=s, root=u;
@@ -33,10 +33,10 @@ void getroot(int u,int fa){
 void getdis(int u,int fa){
     dis[++cnt]=d[u];
     for(int i=h[u];i;i=e[i].ne){
-      int v=e[i].v;
-      if(v==fa||del[v])continue;
-      d[v]=d[u]+e[i].w;
-      getdis(v,u);
+        int v=e[i].v;
+        if(v==fa||del[v])continue;
+        d[v]=d[u]+e[i].w;
+        getdis(v,u);
     }
 }
 void calc(int u){
@@ -44,21 +44,21 @@ void calc(int u){
     int p=0;
     // 计算经过根u的路径
     for(int i=h[u];i;i=e[i].ne){
-      int v=e[i].v;
-      if(del[v])continue;
-      // 求出子树v的各点到u的距离
-      cnt=0; 
-      d[v]=e[i].w;
-      getdis(v,u); 
-      // 枚举距离和询问，判定答案
-      for(int j=1;j<=cnt;++j)
-        for(int k=1;k<=m;++k)
-          if(ask[k]>=dis[j])
-            ans[k]|=judge[ask[k]-dis[j]];
-      // 记录合法距离      
-      for(int j=1;j<=cnt;++j)
-        if(dis[j]<INF)
-          q[++p]=dis[j], judge[q[p]]=1;
+        int v=e[i].v;
+        if(del[v])continue;
+        // 求出子树v的各点到u的距离
+        cnt=0; 
+        d[v]=e[i].w;
+        getdis(v,u); 
+        // 枚举距离和询问，判定答案
+        for(int j=1;j<=cnt;++j)
+            for(int k=1;k<=m;++k)
+              if(ask[k]>=dis[j])
+                ans[k]|=judge[ask[k]-dis[j]];
+        // 记录合法距离      
+        for(int j=1;j<=cnt;++j)
+            if(dis[j]<INF)
+              q[++p]=dis[j], judge[q[p]]=1;
     }
     // 清空距离数组
     for(int i=1;i<=p;++i) judge[q[i]]=0;  
@@ -69,11 +69,11 @@ void divide(int u){
     // 对u的子树进行分治
     del[u]=1;
     for(int i=h[u];i;i=e[i].ne){
-      int v=e[i].v;
-      if(del[v])continue;
-      mxs=sum=siz[v];
-      getroot(v,0); //求根
-      divide(root); //分治
+        int v=e[i].v;
+        if(del[v])continue;
+        mxs=sum=siz[v];
+        getroot(v,0); //求根
+        divide(root); //分治
     }
 }
 
