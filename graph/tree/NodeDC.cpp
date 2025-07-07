@@ -1,5 +1,5 @@
 //P3806 原题
-
+//求树上距离为k的点对是否存在
 #include <bits/stdc++.h>
 
 using namespace std;
