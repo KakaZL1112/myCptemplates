@@ -52,11 +52,6 @@ Point getNode(Point a, Point b, Point u, Point v){
     return a+u*t;
 }
 //两点式（a,b) u= b-a
-
-
-
-
-
 void solve(){ 
 
 }
