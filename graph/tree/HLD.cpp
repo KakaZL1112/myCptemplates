@@ -84,7 +84,8 @@ void change_path(int u,int v,int k){ //修改路径
 }
 void change_tree(int u,int k){ //修改子树
     change(1,id[u],id[u]+siz[u]-1,k);
-}ll query(int u,int l,int r){ //线段树查询
+}
+ll query(int u,int l,int r){ //线段树查询
     if(l<=tr[u].l&&tr[u].r<=r)return tr[u].sum;
     pushdown(u);
     int mid=tr[u].l+tr[u].r>>1;
@@ -92,7 +93,8 @@ ll res=0;
     if(l<=mid) res+=query(lc,l,r);
     if(r>mid) res+=query(rc,l,r);
     return res;
-}ll query_path(int u,int v){ //查询路径上的权值和 //m * logn^2
+}
+ll query_path(int u,int v){ //查询路径上的权值和 //m * logn^2
 ll res=0;
     while(top[u]!=top[v]){
         if(dep[top[u]]<dep[top[v]]) swap(u,v);
